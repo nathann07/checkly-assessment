@@ -33,7 +33,7 @@ Since only the dynamically generated API checks need to access it, I'd recommend
 
 ## Adding New Checks:
 
-Any new `*.check.ts` checks created in your `__checks__` folder, and `*spec.ts` checks created in your `__checks__/playwright-tests` folder, will be automatically picked up by the CLI when you deploy to Checkly. You can modify this functionality in the checkly.config.ts file.
+Any new `*.check.ts` checks created in your `__checks__` folder, and `*.spec.ts` checks created in your `__checks__/playwright-tests` folder, will be automatically picked up by the CLI when you deploy to Checkly. You can modify this functionality in the checkly.config.ts file.
 
 In the `playwright-tests` folder, make sure you create browser checks in the `browser` folder and multi step checks in the `multistep` folder, for them to be picked up correctly by the CLI.
 
