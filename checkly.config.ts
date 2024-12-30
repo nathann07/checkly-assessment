@@ -31,12 +31,6 @@ const config = defineConfig({
     alertEscalationPolicy: AlertEscalationBuilder.runBasedEscalation(1),
     /* A glob pattern that matches the Checks inside your repo, see https://www.checklyhq.com/docs/cli/using-check-test-match/ */
     checkMatch: '**/__checks__/**/*.check.ts',
-    browserChecks: {
-      testMatch: '**/__checks__/playwright-tests/browser/*.spec.ts'
-    },
-    multiStepChecks: {
-      testMatch: '**/__checks__/playwright-tests/multistep/*.spec.ts'
-    },
   },
   cli: {
     /* The default datacenter location to use when running npx checkly test */

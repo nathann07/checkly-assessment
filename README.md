@@ -29,7 +29,7 @@ To allow these generated API checks to use the auth token, you will need to add 
 
 "Secrets allow you to store sensitive data for use in checks. Once saved secrets are never shown in the UI or in logs. The secret value cannot be accessed via the CLI or API.""
 
-Since only the dynamically generated API checks need to access it, I'd recommend creating the remote variable at the group level, for the API check group. I've outliined the steps in my response to you. Documentation on Checkly secrets is found here: https://www.checklyhq.com/docs/browser-checks/variables/.
+Since only the dynamically generated API checks need to access it, I'd recommend creating the remote variable at the group level, for the API check group. I've outlined the steps in my response to you. Documentation on Checkly secrets is found here: https://www.checklyhq.com/docs/browser-checks/variables/.
 
 ## Adding New Checks:
 
@@ -37,9 +37,7 @@ Any new `*.check.ts` checks created in your `__checks__` folder, and `*spec.ts` 
 
 In the `playwright-tests` folder, make sure you create browser checks in the `browser` folder and multi step checks in the `multistep` folder, for them to be picked up correctly by the CLI.
 
-Right now, any new Playwright tests will not be added into any group. If you would like them to automatically be added into a group (for example, Playwright Group):
-
-Take these lines out of checkly.config.ts:
+Right now, any new Playwright tests created will be added into the Playwright Group. If you would like them to not be added to any group, paste these lines into checkly.config.ts, within the `checks` object:
 
 ```
     browserChecks: {
@@ -50,11 +48,11 @@ Take these lines out of checkly.config.ts:
     },
 ```
 
-and paste them into the desired CheckGroup, such as the one defined in playwright-group.check.ts.
+and remove the browserChecks and multiStepChecks properties from the CheckGroup defined in playwright-group.check.ts.
 
 ## Project Structure
 
-This project holds all checks within the `src/__checks__` folder, with playwright tests living in the `src/__checks__/playwright-tests` folder.
+This project holds all checks within the `src/__checks__` folder, with Playwright tests living in the `src/__checks__/playwright-tests` folder.
 
 - Running `npx checkly test` will look for `.check.ts` files and `.spec.ts` files in the `__checks__` and `__checks__/playwright` directories, respectively, and execute them in a dry run.
 

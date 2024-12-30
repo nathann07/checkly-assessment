@@ -13,6 +13,12 @@ export const playwrightGroup = new CheckGroup('playwright-tests-group', {
   apiCheckDefaults: {},
   concurrency: 100,
   alertChannels,
+  browserChecks: {
+    testMatch: 'browser/*.spec.ts'
+  },
+  multiStepChecks: {
+    testMatch: 'multistep/*.spec.ts'
+  },
   /* All checks on this check group will have this alert escalation policy */
   alertEscalationPolicy: AlertEscalationBuilder.runBasedEscalation(1),
   retryStrategy: RetryStrategyBuilder.linearStrategy({ baseBackoffSeconds: 30, maxRetries: 3, sameRegion: false }),
