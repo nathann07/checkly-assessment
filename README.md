@@ -29,7 +29,7 @@ To allow these generated API checks to use the auth token, you will need to add 
 
 "Secrets allow you to store sensitive data for use in checks. Once saved secrets are never shown in the UI or in logs. The secret value cannot be accessed via the CLI or API.""
 
-Since only the dynamically generated API checks need to access it, I'd recommend creating the remote variable at the group level, for the API check group. I've outliined the steps in my response to you. Documentation on Checkly secrets is found here: https://www.checklyhq.com/docs/browser-checks/variables/.
+Since only the dynamically generated API checks need to access it, I'd recommend creating the remote variable at the group level, for the API check group. I've outlined the steps in my response to you. Documentation on Checkly secrets is found here: https://www.checklyhq.com/docs/browser-checks/variables/.
 
 ## Adding New Checks:
 
