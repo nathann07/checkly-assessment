@@ -27,7 +27,7 @@ pokemonForm.types[0].type.name accesses the "electric" string, which is the actu
 The file `create-api.check.ts` contains a function that generates API checks for each URL in the json file users.json. When you deploy to Checkly, it will create the checks automatically. These checks won't pass until they have the auth token.
 To allow these generated API checks to use the auth token, you will need to add this environment variable as a remote variable in Checkly. Specifically, this sensitive data will be stored as a secret in Checkly. According to the Checkly documentation:
 
-"Secrets allow you to store sensitive data for use in checks. Once saved secrets are never shown in the UI or in logs. The secret value cannot be accessed via the CLI or API.""
+"Secrets allow you to store sensitive data for use in checks. Once saved secrets are never shown in the UI or in logs. The secret value cannot be accessed via the CLI or API."
 
 Since only the dynamically generated API checks need to access it, I'd recommend creating the remote variable at the group level, for the API check group. I've outlined the steps in my response to you. Documentation on Checkly secrets is found here: https://www.checklyhq.com/docs/browser-checks/variables/.
 
